@@ -48,8 +48,13 @@ export class AppComponent {
     const post: any = this.getPosts(false);
     const users: any = this.getUsers(false);
     forkJoin([post, users]).subscribe(
-      (data) => console.log(data),
-      (error) => console.log(error)
+      ([res1, res2]) => {
+        console.log(res1);
+        console.log(res2);
+      },
+      (err) => {
+        console.log(err);
+      }
     );
   }
 
